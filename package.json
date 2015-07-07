@@ -1,6 +1,6 @@
 {
-  "name": "passport-rdio",
-  "version": "0.1.2",
+  "name": "passport-rdio-oauth2",
+  "version": "1.0.0",
   "description": "Rdio authentication strategy for Passport.",
   "keywords": [
     "passport",
@@ -12,15 +12,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredhanson/passport-rdio.git"
+    "url": "git://github.com/octoblu/passport-rdio-oauth2.git"
   },
   "bugs": {
-    "url": "http://github.com/jaredhanson/passport-rdio/issues"
+    "url": "http://github.com/octoblu/passport-rdio-oauth2/issues"
   },
   "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "http://www.jaredhanson.net/"
+    "name": "Octoblu",
+    "email": "serveradmin@octoblu.com",
+    "url": "http://www.octoblu.com"
   },
   "licenses": [
     {
