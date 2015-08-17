@@ -1,11 +1,8 @@
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
-  , RdioStrategy = require('passport-rdio').Strategy;
-
-var RDIO_API_KEY = "--insert-rdio-api-key-here--"
-var RDIO_SHARED_SECRET = "--insert-rdio-shared-secret-here--";
-
+  , RdioStrategy = require('../../lib/passport-rdio').Strategy
+  , app = express();
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
@@ -27,15 +24,16 @@ passport.deserializeUser(function(obj, done) {
 //   Strategies in passport require a `verify` function, which accept
 //   credentials (in this case, a token, tokenSecret, and Rdio profile), and
 //   invoke a callback with a user object.
+
 passport.use(new RdioStrategy({
-    consumerKey: RDIO_API_KEY,
-    consumerSecret: RDIO_SHARED_SECRET,
+    clientID: 'eeuvwjobdjeavcv3ed7ptq4iri',
+    clientSecret: 'pQq5n_LQ1eEUSyjC8dZvmg',
     callbackURL: "http://127.0.0.1:3000/auth/rdio/callback"
   },
   function(token, tokenSecret, profile, done) {
     // asynchronous verification, for effect...
     process.nextTick(function () {
-      
+
       // To keep the example simple, the user's Rdio profile is returned to
       // represent the logged-in user.  In a typical application, you would want
       // to associate the Rdio account with a user record in your database,
@@ -44,11 +42,6 @@ passport.use(new RdioStrategy({
     });
   }
 ));
-
-
-
-
-var app = express.createServer();
 
 // configure Express
 app.configure(function() {
@@ -97,7 +90,7 @@ app.get('/auth/rdio',
 //   request.  If authentication fails, the user will be redirected back to the
 //   login page.  Otherwise, the primary route function function will be called,
 //   which, in this example, will redirect the user to the home page.
-app.get('/auth/rdio/callback', 
+app.get('/auth/rdio/callback',
   passport.authenticate('rdio', { failureRedirect: '/login' }),
   function(req, res) {
     res.redirect('/');
@@ -109,7 +102,6 @@ app.get('/logout', function(req, res){
 });
 
 app.listen(3000);
-
 
 // Simple route middleware to ensure user is authenticated.
 //   Use this route middleware on any resource that needs to be protected.  If

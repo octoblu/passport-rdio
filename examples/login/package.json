@@ -2,9 +2,11 @@
   "name": "passport-meetup-examples-login",
   "version": "0.0.0",
   "dependencies": {
-    "express": ">= 0.0.0",
     "ejs": ">= 0.0.0",
+    "express": "^3.21.2",
     "passport": ">= 0.0.0",
-    "passport-meetup": ">= 0.0.0"
+    "passport-meetup": ">= 0.0.0",
+    "passport-oauth": "^1.0.0",
+    "passport-rdio": "^0.1.2"
   }
 }
