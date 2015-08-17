@@ -26,8 +26,8 @@ passport.deserializeUser(function(obj, done) {
 //   invoke a callback with a user object.
 
 passport.use(new RdioStrategy({
-    clientID: 'eeuvwjobdjeavcv3ed7ptq4iri',
-    clientSecret: 'pQq5n_LQ1eEUSyjC8dZvmg',
+    clientID: 'add-clientID',
+    clientSecret: 'add-client-secret',
     callbackURL: "http://127.0.0.1:3000/auth/rdio/callback"
   },
   function(token, tokenSecret, profile, done) {
