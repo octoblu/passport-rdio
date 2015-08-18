@@ -1,7 +1,7 @@
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
-  , RdioStrategy = require('../../lib/passport-rdio').Strategy
+  , RdioStrategy = require('../../lib/').Strategy
   , app = express();
 
 // Passport session setup.
@@ -26,8 +26,8 @@ passport.deserializeUser(function(obj, done) {
 //   invoke a callback with a user object.
 
 passport.use(new RdioStrategy({
-    clientID: 'add-clientID',
-    clientSecret: 'add-client-secret',
+    clientID: '',
+    clientSecret: '',
     callbackURL: "http://127.0.0.1:3000/auth/rdio/callback"
   },
   function(token, tokenSecret, profile, done) {
