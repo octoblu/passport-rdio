@@ -1,8 +1,11 @@
 var express = require('express')
   , passport = require('passport')
   , util = require('util')
-  , RdioStrategy = require('../../lib/').Strategy
+  , RdioStrategy = require('passport-rdio-oauth2').Strategy
   , app = express();
+
+var RDIO_CLIENT_ID = "--insert-rdio-client-id-here--";
+var RDIO_CLIENT_SECRET = "--insert-rdio-client-secret-here--";
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
@@ -26,8 +29,8 @@ passport.deserializeUser(function(obj, done) {
 //   invoke a callback with a user object.
 
 passport.use(new RdioStrategy({
-    clientID: '',
-    clientSecret: '',
+    clientID: RDIO_CLIENT_ID,
+    clientSecret: RDIO_CLIENT_SECRET,
     callbackURL: "http://127.0.0.1:3000/auth/rdio/callback"
   },
   function(token, tokenSecret, profile, done) {
